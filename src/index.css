@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+:root {
+  --ink: #1d2433;
+  --paper: #ffffff;
+  --desk: #e4e1da;
+  --panel: #f7f6f2;
+  --rule: #d6d2c8;
+  --accent: #1f4e79;
+  --font-ui: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-doc: Charter, "Iowan Old Style", Georgia, serif;
+  --page-w: 210mm;
+  --page-h: 297mm;
+  --page-pad: 16mm;
+}
+
+body { font-family: var(--font-ui); color: var(--ink); background: var(--desk); }
+
+.field { display: block; }
+.field > span { display: block; font-size: 0.8rem; margin-bottom: 0.2rem; color: #4a5266; }
+.input {
+  width: 100%; padding: 0.45rem 0.6rem; background: #fff;
+  border: 1px solid var(--rule); border-radius: 4px; font: inherit; font-size: 0.9rem;
+}
+.input:focus-visible, .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.btn {
+  padding: 0.4rem 0.8rem; border-radius: 4px; border: 1px solid var(--rule);
+  background: #fff; font-size: 0.85rem; cursor: pointer;
+}
+.btn:hover { background: #efede6; }
+.btn-primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+.btn-primary:hover { background: #17395a; }
+
+.page {
+  width: var(--page-w); min-height: var(--page-h); padding: var(--page-pad);
+  background: var(--paper); box-shadow: 0 1px 3px rgba(0,0,0,.25);
+  font-family: var(--font-doc); font-size: 10.5pt; line-height: 1.45; color: #111;
+  box-sizing: border-box;
+}
+
+@media print {
+  @page { size: A4; margin: 0; }
+  html, body { background: #fff !important; }
+  #editor, #toolbar { display: none !important; }
+  #stage { padding: 0 !important; overflow: visible !important; }
+  .page { box-shadow: none !important; margin: 0 !important; }
+}
